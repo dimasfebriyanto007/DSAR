@@ -1,1 +1,0 @@
-[25-Aug-2011 13:12:17] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20090626/php_ming.dll' - /usr/local/lib/php/extensions/no-debug-non-zts-20090626/php_ming.dll: cannot open shared object file: No such file or directory in Unknown on line 0
