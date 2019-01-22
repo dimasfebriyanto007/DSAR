@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fitbarModelStoreContainer" CdmEntityContainer="fitbarEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="fitbarModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="fitbarModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Replyed" ColumnName="Replyed" />
+          <ScalarProperty Name="ReplyMessage" ColumnName="ReplyMessage" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ReplyDate" ColumnName="ReplyDate" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Happenings">
+      <EntityTypeMapping TypeName="fitbarModel.Happening">
+        <MappingFragment StoreEntitySet="Happenings">
+          <ScalarProperty Name="HappeningId" ColumnName="HappeningId" />
+          <ScalarProperty Name="Title_id" ColumnName="Title_id" />
+          <ScalarProperty Name="Title_en" ColumnName="Title_en" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Intro_id" ColumnName="Intro_id" />
+          <ScalarProperty Name="Intro_en" ColumnName="Intro_en" />
+          <ScalarProperty Name="ThumbnailImage" ColumnName="ThumbnailImage" />
+          <ScalarProperty Name="ContentImage" ColumnName="ContentImage" />
+          <ScalarProperty Name="Content_id" ColumnName="Content_id" />
+          <ScalarProperty Name="Content_en" ColumnName="Content_en" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promos">
+      <EntityTypeMapping TypeName="fitbarModel.Promo">
+        <MappingFragment StoreEntitySet="Promos">
+          <ScalarProperty Name="PromoId" ColumnName="PromoId" />
+          <ScalarProperty Name="Title_id" ColumnName="Title_id" />
+          <ScalarProperty Name="Title_en" ColumnName="Title_en" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Intro_id" ColumnName="Intro_id" />
+          <ScalarProperty Name="Intro_en" ColumnName="Intro_en" />
+          <ScalarProperty Name="ThumbnailImage" ColumnName="ThumbnailImage" />
+          <ScalarProperty Name="ContentImage" ColumnName="ContentImage" />
+          <ScalarProperty Name="Content_id" ColumnName="Content_id" />
+          <ScalarProperty Name="Content_en" ColumnName="Content_en" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="fitbarModel.Setting">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+          <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Testimonies">
+      <EntityTypeMapping TypeName="fitbarModel.Testimony">
+        <MappingFragment StoreEntitySet="Testimonies">
+          <ScalarProperty Name="TestiId" ColumnName="TestiId" />
+          <ScalarProperty Name="Title_id" ColumnName="Title_id" />
+          <ScalarProperty Name="Title_en" ColumnName="Title_en" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Intro_id" ColumnName="Intro_id" />
+          <ScalarProperty Name="Intro_en" ColumnName="Intro_en" />
+          <ScalarProperty Name="ThumbnailImage" ColumnName="ThumbnailImage" />
+          <ScalarProperty Name="ContentImage" ColumnName="ContentImage" />
+          <ScalarProperty Name="Content_id" ColumnName="Content_id" />
+          <ScalarProperty Name="Content_en" ColumnName="Content_en" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Texts">
+      <EntityTypeMapping TypeName="fitbarModel.Text">
+        <MappingFragment StoreEntitySet="Texts">
+          <ScalarProperty Name="TextId" ColumnName="TextId" />
+          <ScalarProperty Name="Text_id" ColumnName="Text_id" />
+          <ScalarProperty Name="Text_en" ColumnName="Text_en" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="fitbarModel.Topic">
+        <MappingFragment StoreEntitySet="Topics">
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="Title_id" ColumnName="Title_id" />
+          <ScalarProperty Name="Title_en" ColumnName="Title_en" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Intro_id" ColumnName="Intro_id" />
+          <ScalarProperty Name="Intro_en" ColumnName="Intro_en" />
+          <ScalarProperty Name="ThumbnailImage" ColumnName="ThumbnailImage" />
+          <ScalarProperty Name="ContentImage" ColumnName="ContentImage" />
+          <ScalarProperty Name="Content_id" ColumnName="Content_id" />
+          <ScalarProperty Name="Content_en" ColumnName="Content_en" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Abouts">
+      <EntityTypeMapping TypeName="fitbarModel.About">
+        <MappingFragment StoreEntitySet="Abouts">
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="Content_en" ColumnName="Content_en" />
+          <ScalarProperty Name="Content_id" ColumnName="Content_id" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="ShowTitle" ColumnName="ShowTitle" />
+          <ScalarProperty Name="Subject_en" ColumnName="Subject_en" />
+          <ScalarProperty Name="Subject_id" ColumnName="Subject_id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Title_en" ColumnName="Title_en" />
+          <ScalarProperty Name="Title_id" ColumnName="Title_id" />
+          <ScalarProperty Name="AboutId" ColumnName="AboutId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medias">
+      <EntityTypeMapping TypeName="fitbarModel.Media">
+        <MappingFragment StoreEntitySet="Medias">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="Content_en" ColumnName="Content_en" />
+          <ScalarProperty Name="Content_id" ColumnName="Content_id" />
+          <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+          <ScalarProperty Name="VideoUrl" ColumnName="VideoUrl" />
+          <ScalarProperty Name="ContentImage" ColumnName="ContentImage" />
+          <ScalarProperty Name="ThumbnailImage" ColumnName="ThumbnailImage" />
+          <ScalarProperty Name="Intro_en" ColumnName="Intro_en" />
+          <ScalarProperty Name="Intro_id" ColumnName="Intro_id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Title_en" ColumnName="Title_en" />
+          <ScalarProperty Name="Title_id" ColumnName="Title_id" />
+          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faqs">
+      <EntityTypeMapping TypeName="fitbarModel.Faq">
+        <MappingFragment StoreEntitySet="Faqs">
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Answer_en" ColumnName="Answer_en" />
+          <ScalarProperty Name="Answer_id" ColumnName="Answer_id" />
+          <ScalarProperty Name="Question_en" ColumnName="Question_en" />
+          <ScalarProperty Name="Question_id" ColumnName="Question_id" />
+          <ScalarProperty Name="FaqId" ColumnName="FaqId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlbumGaleries">
+      <EntityTypeMapping TypeName="fitbarModel.AlbumGalery">
+        <MappingFragment StoreEntitySet="AlbumGaleries">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="GaleryId" ColumnName="GaleryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventGaleries">
+      <EntityTypeMapping TypeName="fitbarModel.EventGalery">
+        <MappingFragment StoreEntitySet="EventGaleries">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="GaleryId" ColumnName="GaleryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="fitbarModel.Album">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="Description_en" ColumnName="Description_en" />
+          <ScalarProperty Name="Description_id" ColumnName="Description_id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Title_en" ColumnName="Title_en" />
+          <ScalarProperty Name="Title_id" ColumnName="Title_id" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="fitbarModel.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Publish" ColumnName="Publish" />
+          <ScalarProperty Name="Description_en" ColumnName="Description_en" />
+          <ScalarProperty Name="Description_id" ColumnName="Description_id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Title_en" ColumnName="Title_en" />
+          <ScalarProperty Name="Title_id" ColumnName="Title_id" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

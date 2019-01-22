@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kalcareModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="kalcareEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="kalcareModel.Address" />
+    <EntitySet Name="Admins" EntityType="kalcareModel.Admin" />
+    <EntitySet Name="News" EntityType="kalcareModel.News" />
+    <EntitySet Name="Settings" EntityType="kalcareModel.Setting" />
+    <EntitySet Name="Abouts" EntityType="kalcareModel.About" />
+    <EntitySet Name="NewsCategories" EntityType="kalcareModel.NewsCategory" />
+    <AssociationSet Name="FK_News_NewsCategories" Association="kalcareModel.FK_News_NewsCategories">
+      <End Role="NewsCategory" EntitySet="NewsCategories" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <EntitySet Name="FaqCategories" EntityType="kalcareModel.FaqCategory" />
+    <EntitySet Name="Faqs" EntityType="kalcareModel.Faq" />
+    <AssociationSet Name="FK_Faqs_FaqCategories" Association="kalcareModel.FK_Faqs_FaqCategories">
+      <End Role="FaqCategory" EntitySet="FaqCategories" />
+      <End Role="Faq" EntitySet="Faqs" />
+    </AssociationSet>
+    <EntitySet Name="FaqTopics" EntityType="kalcareModel.FaqTopic" />
+    <AssociationSet Name="FK_FaqCategories_FaqTopics" Association="kalcareModel.FK_FaqCategories_FaqTopics">
+      <End Role="FaqTopic" EntitySet="FaqTopics" />
+      <End Role="FaqCategory" EntitySet="FaqCategories" />
+    </AssociationSet>
+    <EntitySet Name="AddressCategories" EntityType="kalcareModel.AddressCategory" />
+    <AssociationSet Name="FK_Address_AddressCategories" Association="kalcareModel.FK_Address_AddressCategories">
+      <End Role="AddressCategory" EntitySet="AddressCategories" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <EntitySet Name="DownloadCategories" EntityType="kalcareModel.DownloadCategory" />
+    <EntitySet Name="Downloads" EntityType="kalcareModel.Download" />
+    <AssociationSet Name="FK_Downloads_DownloadCategories" Association="kalcareModel.FK_Downloads_DownloadCategories">
+      <End Role="DownloadCategory" EntitySet="DownloadCategories" />
+      <End Role="Download" EntitySet="Downloads" />
+    </AssociationSet>
+    <EntitySet Name="Solutions" EntityType="kalcareModel.Solution" />
+    <EntitySet Name="RunningTexts" EntityType="kalcareModel.RunningText" />
+    <EntitySet Name="Contacts" EntityType="kalcareModel.Contact" />
+  </EntityContainer>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Address1" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="AddressCategory" Relationship="kalcareModel.FK_Address_AddressCategories" FromRole="Address" ToRole="AddressCategory" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Url" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="PreviewText" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="ContentText" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="ImageName" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="NewsCategory" Relationship="kalcareModel.FK_News_NewsCategories" FromRole="News" ToRole="NewsCategory" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="SettingName" />
+    </Key>
+    <Property Name="SettingName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SettingValue" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="AboutId" />
+    </Key>
+    <Property Type="Int32" Name="AboutId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="ShowTitle" Nullable="false" />
+    <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ContentText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="IsPartner" Nullable="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewsCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <NavigationProperty Name="News" Relationship="kalcareModel.FK_News_NewsCategories" FromRole="NewsCategory" ToRole="News" />
+  </EntityType>
+  <Association Name="FK_News_NewsCategories">
+    <End Type="kalcareModel.NewsCategory" Role="NewsCategory" Multiplicity="1" />
+    <End Type="kalcareModel.News" Role="News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FaqCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="TopicId" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <NavigationProperty Name="Faqs" Relationship="kalcareModel.FK_Faqs_FaqCategories" FromRole="FaqCategory" ToRole="Faq" />
+    <NavigationProperty Name="FaqTopic" Relationship="kalcareModel.FK_FaqCategories_FaqTopics" FromRole="FaqCategory" ToRole="FaqTopic" />
+  </EntityType>
+  <EntityType Name="Faq">
+    <Key>
+      <PropertyRef Name="FaqId" />
+    </Key>
+    <Property Type="Int32" Name="FaqId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="Question" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Answer" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="false" />
+    <NavigationProperty Name="FaqCategory" Relationship="kalcareModel.FK_Faqs_FaqCategories" FromRole="Faq" ToRole="FaqCategory" />
+  </EntityType>
+  <Association Name="FK_Faqs_FaqCategories">
+    <End Type="kalcareModel.FaqCategory" Role="FaqCategory" Multiplicity="1" />
+    <End Type="kalcareModel.Faq" Role="Faq" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FaqCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Faq">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FaqTopic">
+    <Key>
+      <PropertyRef Name="TopicId" />
+    </Key>
+    <Property Type="Int32" Name="TopicId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <NavigationProperty Name="FaqCategories" Relationship="kalcareModel.FK_FaqCategories_FaqTopics" FromRole="FaqTopic" ToRole="FaqCategory" />
+  </EntityType>
+  <Association Name="FK_FaqCategories_FaqTopics">
+    <End Type="kalcareModel.FaqTopic" Role="FaqTopic" Multiplicity="1" />
+    <End Type="kalcareModel.FaqCategory" Role="FaqCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FaqTopic">
+        <PropertyRef Name="TopicId" />
+      </Principal>
+      <Dependent Role="FaqCategory">
+        <PropertyRef Name="TopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AddressCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="kalcareModel.FK_Address_AddressCategories" FromRole="AddressCategory" ToRole="Address" />
+  </EntityType>
+  <Association Name="FK_Address_AddressCategories">
+    <End Type="kalcareModel.AddressCategory" Role="AddressCategory" Multiplicity="1" />
+    <End Type="kalcareModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="DownloadCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <NavigationProperty Name="Downloads" Relationship="kalcareModel.FK_Downloads_DownloadCategories" FromRole="DownloadCategory" ToRole="Download" />
+  </EntityType>
+  <EntityType Name="Download">
+    <Key>
+      <PropertyRef Name="DownloadId" />
+    </Key>
+    <Property Type="Int32" Name="DownloadId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ImageName" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FileName" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DownloadLink" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="false" />
+    <NavigationProperty Name="DownloadCategory" Relationship="kalcareModel.FK_Downloads_DownloadCategories" FromRole="Download" ToRole="DownloadCategory" />
+  </EntityType>
+  <Association Name="FK_Downloads_DownloadCategories">
+    <End Type="kalcareModel.DownloadCategory" Role="DownloadCategory" Multiplicity="1" />
+    <End Type="kalcareModel.Download" Role="Download" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DownloadCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Download">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Solution">
+    <Key>
+      <PropertyRef Name="SolutionId" />
+    </Key>
+    <Property Type="Int32" Name="SolutionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ContentText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ImageName" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SymbolName" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RunningText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ContentText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Publish" Nullable="false" />
+    <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="DateTime" Name="LastUpdate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Type="Int32" Name="ContactId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nama" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Alamat" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Kota" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Kodepos" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Negara" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Telepon" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Deskripsi" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="NeedToCalled" Nullable="false" />
+    <Property Type="String" Name="Comment" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Byte" Name="Replyed" Nullable="false" />
+    <Property Type="String" Name="ReplyMessage" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="DateTime" Name="ReplyDate" />
+    <Property Type="String" Name="IpAddress" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

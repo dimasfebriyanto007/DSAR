@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bimoliModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="bimoliModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="bimoliModel.Store.Admins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Articles" EntityType="bimoliModel.Store.Articles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BackAccessories" EntityType="bimoliModel.Store.BackAccessories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cities" EntityType="bimoliModel.Store.Cities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contacts" EntityType="bimoliModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Countries" EntityType="bimoliModel.Store.Countries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DiningRooms" EntityType="bimoliModel.Store.DiningRooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FrontAccessories" EntityType="bimoliModel.Store.FrontAccessories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HouseBackAccessories" EntityType="bimoliModel.Store.HouseBackAccessories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HouseFrontAccessories" EntityType="bimoliModel.Store.HouseFrontAccessories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Houses" EntityType="bimoliModel.Store.Houses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HouseTypes" EntityType="bimoliModel.Store.HouseTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kitchens" EntityType="bimoliModel.Store.Kitchens" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LivingRooms" EntityType="bimoliModel.Store.LivingRooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MenuDate" EntityType="bimoliModel.Store.MenuDate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MenuLauk" EntityType="bimoliModel.Store.MenuLauk" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Menus" EntityType="bimoliModel.Store.Menus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="News" EntityType="bimoliModel.Store.News" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pagar" EntityType="bimoliModel.Store.Pagar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="bimoliModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Recipes" EntityType="bimoliModel.Store.Recipes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SavedMenu" EntityType="bimoliModel.Store.SavedMenu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SavedRecipes" EntityType="bimoliModel.Store.SavedRecipes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Settings" EntityType="bimoliModel.Store.Settings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="bimoliModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Cities_Countries" Association="bimoliModel.Store.FK_Cities_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacts_Countries" Association="bimoliModel.Store.FK_Contacts_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HouseBackAccessories_BackAccessories" Association="bimoliModel.Store.FK_HouseBackAccessories_BackAccessories">
+      <End Role="BackAccessories" EntitySet="BackAccessories" />
+      <End Role="HouseBackAccessories" EntitySet="HouseBackAccessories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HouseBackAccessories_Houses" Association="bimoliModel.Store.FK_HouseBackAccessories_Houses">
+      <End Role="Houses" EntitySet="Houses" />
+      <End Role="HouseBackAccessories" EntitySet="HouseBackAccessories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HouseFrontAccessories_FrontAccessories" Association="bimoliModel.Store.FK_HouseFrontAccessories_FrontAccessories">
+      <End Role="FrontAccessories" EntitySet="FrontAccessories" />
+      <End Role="HouseFrontAccessories" EntitySet="HouseFrontAccessories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HouseFrontAccessories_Houses" Association="bimoliModel.Store.FK_HouseFrontAccessories_Houses">
+      <End Role="Houses" EntitySet="Houses" />
+      <End Role="HouseFrontAccessories" EntitySet="HouseFrontAccessories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Houses_DiningRooms" Association="bimoliModel.Store.FK_Houses_DiningRooms">
+      <End Role="DiningRooms" EntitySet="DiningRooms" />
+      <End Role="Houses" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Houses_HouseTypes" Association="bimoliModel.Store.FK_Houses_HouseTypes">
+      <End Role="HouseTypes" EntitySet="HouseTypes" />
+      <End Role="Houses" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Houses_Kitchens" Association="bimoliModel.Store.FK_Houses_Kitchens">
+      <End Role="Kitchens" EntitySet="Kitchens" />
+      <End Role="Houses" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Houses_LivingRooms" Association="bimoliModel.Store.FK_Houses_LivingRooms">
+      <End Role="LivingRooms" EntitySet="LivingRooms" />
+      <End Role="Houses" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Houses_Pagar" Association="bimoliModel.Store.FK_Houses_Pagar">
+      <End Role="Pagar" EntitySet="Pagar" />
+      <End Role="Houses" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Houses_Users" Association="bimoliModel.Store.FK_Houses_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Houses" EntitySet="Houses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuDate_Menus" Association="bimoliModel.Store.FK_MenuDate_Menus">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="MenuDate" EntitySet="MenuDate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuDate_Users" Association="bimoliModel.Store.FK_MenuDate_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MenuDate" EntitySet="MenuDate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuLauk_Menus" Association="bimoliModel.Store.FK_MenuLauk_Menus">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="MenuLauk" EntitySet="MenuLauk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuLauk_Recipes" Association="bimoliModel.Store.FK_MenuLauk_Recipes">
+      <End Role="Recipes" EntitySet="Recipes" />
+      <End Role="MenuLauk" EntitySet="MenuLauk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menus_Users" Association="bimoliModel.Store.FK_Menus_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Menus" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recipes_Recipes" Association="bimoliModel.Store.FK_Recipes_Recipes">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Recipes" EntitySet="Recipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SavedMenu_Menus" Association="bimoliModel.Store.FK_SavedMenu_Menus">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="SavedMenu" EntitySet="SavedMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SavedMenu_Users" Association="bimoliModel.Store.FK_SavedMenu_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SavedMenu" EntitySet="SavedMenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SavedRecipes_Recipes" Association="bimoliModel.Store.FK_SavedRecipes_Recipes">
+      <End Role="Recipes" EntitySet="Recipes" />
+      <End Role="SavedRecipes" EntitySet="SavedRecipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SavedRecipes_Users" Association="bimoliModel.Store.FK_SavedRecipes_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SavedRecipes" EntitySet="SavedRecipes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Cities" Association="bimoliModel.Store.FK_Users_Cities">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Countries" Association="bimoliModel.Store.FK_Users_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="ArticleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="text" Nullable="false" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BackAccessories">
+    <Key>
+      <PropertyRef Name="BackAccessoriesId" />
+    </Key>
+    <Property Name="BackAccessoriesId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="nchar" Nullable="false" MaxLength="100" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Message" Type="text" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Replyed" Type="tinyint" Nullable="false" />
+    <Property Name="ReplyMessage" Type="text" />
+    <Property Name="ReplyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DiningRooms">
+    <Key>
+      <PropertyRef Name="DiningRoomId" />
+    </Key>
+    <Property Name="DiningRoomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FrontAccessories">
+    <Key>
+      <PropertyRef Name="FrontAccessoriesId" />
+    </Key>
+    <Property Name="FrontAccessoriesId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HouseBackAccessories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HouseId" Type="int" Nullable="false" />
+    <Property Name="AccessoriesId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HouseFrontAccessories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HouseId" Type="int" Nullable="false" />
+    <Property Name="AccessoriesId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Houses">
+    <Key>
+      <PropertyRef Name="HouseId" />
+    </Key>
+    <Property Name="HouseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="IntroText" Type="text" />
+    <Property Name="HouseTypeId" Type="int" Nullable="false" />
+    <Property Name="LivingRoomId" Type="int" Nullable="false" />
+    <Property Name="DiningRoomId" Type="int" Nullable="false" />
+    <Property Name="KitchenId" Type="int" Nullable="false" />
+    <Property Name="PagarId" Type="int" Nullable="false" />
+    <Property Name="VisitedCount" Type="int" Nullable="false" />
+    <Property Name="MenuCount" Type="int" Nullable="false" />
+    <Property Name="RecipeCount" Type="int" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HouseTypes">
+    <Key>
+      <PropertyRef Name="HouseTypeId" />
+    </Key>
+    <Property Name="HouseTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kitchens">
+    <Key>
+      <PropertyRef Name="KitchenId" />
+    </Key>
+    <Property Name="KitchenId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LivingRooms">
+    <Key>
+      <PropertyRef Name="LivingRoomId" />
+    </Key>
+    <Property Name="LivingRoomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MenuDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MenuLauk">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="RecipeId" Type="int" />
+    <Property Name="LaukName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menus">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="text" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Recommended" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="text" Nullable="false" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pagar">
+    <Key>
+      <PropertyRef Name="PagarId" />
+    </Key>
+    <Property Name="PagarId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="text" Nullable="false" />
+    <Property Name="Published" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recipes">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+    </Key>
+    <Property Name="RecipeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Ingredient" Type="text" Nullable="false" />
+    <Property Name="CookingMethod" Type="text" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Recommended" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SavedMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SavedRecipes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RecipeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="SettingName" />
+    </Key>
+    <Property Name="SettingName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SettingValue" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="BirthDay" Type="datetime" Nullable="false" />
+    <Property Name="Gender" Type="tinyint" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="AboutMe" Type="text" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="VisitCount" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Cities_Countries">
+    <End Role="Countries" Type="bimoliModel.Store.Countries" Multiplicity="1" />
+    <End Role="Cities" Type="bimoliModel.Store.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacts_Countries">
+    <End Role="Countries" Type="bimoliModel.Store.Countries" Multiplicity="1" />
+    <End Role="Contacts" Type="bimoliModel.Store.Contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HouseBackAccessories_BackAccessories">
+    <End Role="BackAccessories" Type="bimoliModel.Store.BackAccessories" Multiplicity="1" />
+    <End Role="HouseBackAccessories" Type="bimoliModel.Store.HouseBackAccessories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BackAccessories">
+        <PropertyRef Name="BackAccessoriesId" />
+      </Principal>
+      <Dependent Role="HouseBackAccessories">
+        <PropertyRef Name="AccessoriesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HouseBackAccessories_Houses">
+    <End Role="Houses" Type="bimoliModel.Store.Houses" Multiplicity="1" />
+    <End Role="HouseBackAccessories" Type="bimoliModel.Store.HouseBackAccessories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Houses">
+        <PropertyRef Name="HouseId" />
+      </Principal>
+      <Dependent Role="HouseBackAccessories">
+        <PropertyRef Name="HouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HouseFrontAccessories_FrontAccessories">
+    <End Role="FrontAccessories" Type="bimoliModel.Store.FrontAccessories" Multiplicity="1" />
+    <End Role="HouseFrontAccessories" Type="bimoliModel.Store.HouseFrontAccessories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FrontAccessories">
+        <PropertyRef Name="FrontAccessoriesId" />
+      </Principal>
+      <Dependent Role="HouseFrontAccessories">
+        <PropertyRef Name="AccessoriesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HouseFrontAccessories_Houses">
+    <End Role="Houses" Type="bimoliModel.Store.Houses" Multiplicity="1" />
+    <End Role="HouseFrontAccessories" Type="bimoliModel.Store.HouseFrontAccessories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Houses">
+        <PropertyRef Name="HouseId" />
+      </Principal>
+      <Dependent Role="HouseFrontAccessories">
+        <PropertyRef Name="HouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Houses_DiningRooms">
+    <End Role="DiningRooms" Type="bimoliModel.Store.DiningRooms" Multiplicity="1" />
+    <End Role="Houses" Type="bimoliModel.Store.Houses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiningRooms">
+        <PropertyRef Name="DiningRoomId" />
+      </Principal>
+      <Dependent Role="Houses">
+        <PropertyRef Name="DiningRoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Houses_HouseTypes">
+    <End Role="HouseTypes" Type="bimoliModel.Store.HouseTypes" Multiplicity="1" />
+    <End Role="Houses" Type="bimoliModel.Store.Houses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HouseTypes">
+        <PropertyRef Name="HouseTypeId" />
+      </Principal>
+      <Dependent Role="Houses">
+        <PropertyRef Name="HouseTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Houses_Kitchens">
+    <End Role="Kitchens" Type="bimoliModel.Store.Kitchens" Multiplicity="1" />
+    <End Role="Houses" Type="bimoliModel.Store.Houses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kitchens">
+        <PropertyRef Name="KitchenId" />
+      </Principal>
+      <Dependent Role="Houses">
+        <PropertyRef Name="KitchenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Houses_LivingRooms">
+    <End Role="LivingRooms" Type="bimoliModel.Store.LivingRooms" Multiplicity="1" />
+    <End Role="Houses" Type="bimoliModel.Store.Houses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LivingRooms">
+        <PropertyRef Name="LivingRoomId" />
+      </Principal>
+      <Dependent Role="Houses">
+        <PropertyRef Name="LivingRoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Houses_Pagar">
+    <End Role="Pagar" Type="bimoliModel.Store.Pagar" Multiplicity="1" />
+    <End Role="Houses" Type="bimoliModel.Store.Houses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagar">
+        <PropertyRef Name="PagarId" />
+      </Principal>
+      <Dependent Role="Houses">
+        <PropertyRef Name="PagarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Houses_Users">
+    <End Role="Users" Type="bimoliModel.Store.Users" Multiplicity="1" />
+    <End Role="Houses" Type="bimoliModel.Store.Houses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Houses">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuDate_Menus">
+    <End Role="Menus" Type="bimoliModel.Store.Menus" Multiplicity="1" />
+    <End Role="MenuDate" Type="bimoliModel.Store.MenuDate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="MenuDate">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuDate_Users">
+    <End Role="Users" Type="bimoliModel.Store.Users" Multiplicity="1" />
+    <End Role="MenuDate" Type="bimoliModel.Store.MenuDate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="MenuDate">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuLauk_Menus">
+    <End Role="Menus" Type="bimoliModel.Store.Menus" Multiplicity="1" />
+    <End Role="MenuLauk" Type="bimoliModel.Store.MenuLauk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="MenuLauk">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuLauk_Recipes">
+    <End Role="Recipes" Type="bimoliModel.Store.Recipes" Multiplicity="0..1" />
+    <End Role="MenuLauk" Type="bimoliModel.Store.MenuLauk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipes">
+        <PropertyRef Name="RecipeId" />
+      </Principal>
+      <Dependent Role="MenuLauk">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menus_Users">
+    <End Role="Users" Type="bimoliModel.Store.Users" Multiplicity="1" />
+    <End Role="Menus" Type="bimoliModel.Store.Menus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Menus">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recipes_Recipes">
+    <End Role="Users" Type="bimoliModel.Store.Users" Multiplicity="1" />
+    <End Role="Recipes" Type="bimoliModel.Store.Recipes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Recipes">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SavedMenu_Menus">
+    <End Role="Menus" Type="bimoliModel.Store.Menus" Multiplicity="1" />
+    <End Role="SavedMenu" Type="bimoliModel.Store.SavedMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="SavedMenu">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SavedMenu_Users">
+    <End Role="Users" Type="bimoliModel.Store.Users" Multiplicity="1" />
+    <End Role="SavedMenu" Type="bimoliModel.Store.SavedMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SavedMenu">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SavedRecipes_Recipes">
+    <End Role="Recipes" Type="bimoliModel.Store.Recipes" Multiplicity="1" />
+    <End Role="SavedRecipes" Type="bimoliModel.Store.SavedRecipes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipes">
+        <PropertyRef Name="RecipeId" />
+      </Principal>
+      <Dependent Role="SavedRecipes">
+        <PropertyRef Name="RecipeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SavedRecipes_Users">
+    <End Role="Users" Type="bimoliModel.Store.Users" Multiplicity="1" />
+    <End Role="SavedRecipes" Type="bimoliModel.Store.SavedRecipes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SavedRecipes">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Cities">
+    <End Role="Cities" Type="bimoliModel.Store.Cities" Multiplicity="1" />
+    <End Role="Users" Type="bimoliModel.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Countries">
+    <End Role="Countries" Type="bimoliModel.Store.Countries" Multiplicity="1" />
+    <End Role="Users" Type="bimoliModel.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

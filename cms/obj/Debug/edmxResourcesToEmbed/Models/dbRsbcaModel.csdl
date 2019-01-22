@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rsbcaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="rsbcaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ApiKeys" EntityType="rsbcaModel.ApiKey" />
+    <EntitySet Name="BranchCategories" EntityType="rsbcaModel.BranchCategory" />
+    <EntitySet Name="Branchs" EntityType="rsbcaModel.Branch" />
+    <EntitySet Name="BranchVideos" EntityType="rsbcaModel.BranchVideo" />
+    <EntitySet Name="Devices" EntityType="rsbcaModel.Device" />
+    <EntitySet Name="InterestCategories" EntityType="rsbcaModel.InterestCategory" />
+    <EntitySet Name="Menus" EntityType="rsbcaModel.Menu" />
+    <EntitySet Name="Privileges" EntityType="rsbcaModel.Privilege" />
+    <EntitySet Name="Products" EntityType="rsbcaModel.Product" />
+    <EntitySet Name="ProductTabs" EntityType="rsbcaModel.ProductTab" />
+    <EntitySet Name="PromoCategories" EntityType="rsbcaModel.PromoCategory" />
+    <EntitySet Name="Promos" EntityType="rsbcaModel.Promo" />
+    <EntitySet Name="Roles" EntityType="rsbcaModel.Role" />
+    <EntitySet Name="Users" EntityType="rsbcaModel.User" />
+    <EntitySet Name="VideoCategories" EntityType="rsbcaModel.VideoCategory" />
+    <EntitySet Name="Videos" EntityType="rsbcaModel.Video" />
+    <EntitySet Name="VisualForms" EntityType="rsbcaModel.VisualForm" />
+    <EntitySet Name="VisualFormTemps" EntityType="rsbcaModel.VisualFormTemp" />
+    <AssociationSet Name="FK_BranchInterests_Branchs" Association="rsbcaModel.FK_BranchInterests_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="BranchCategories" EntitySet="BranchCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BranchInterests_InterestCategories" Association="rsbcaModel.FK_BranchInterests_InterestCategories">
+      <End Role="InterestCategories" EntitySet="InterestCategories" />
+      <End Role="BranchCategories" EntitySet="BranchCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BranchVideos_Branchs" Association="rsbcaModel.FK_BranchVideos_Branchs">
+      <End Role="Branchs" EntitySet="Branchs" />
+      <End Role="BranchVideos" EntitySet="BranchVideos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BranchVideos_Videos" Association="rsbcaModel.FK_BranchVideos_Videos">
+      <End Role="Videos" EntitySet="Videos" />
+      <End Role="BranchVideos" EntitySet="BranchVideos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VisualForms_Devices" Association="rsbcaModel.FK_VisualForms_Devices">
+      <End Role="Devices" EntitySet="Devices" />
+      <End Role="VisualForms" EntitySet="VisualForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PromoCategories_InterestCategories" Association="rsbcaModel.FK_PromoCategories_InterestCategories">
+      <End Role="InterestCategories" EntitySet="InterestCategories" />
+      <End Role="PromoCategories" EntitySet="PromoCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Privileges_Menus" Association="rsbcaModel.FK_Privileges_Menus">
+      <End Role="Menus" EntitySet="Menus" />
+      <End Role="Privileges" EntitySet="Privileges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Privileges_Roles" Association="rsbcaModel.FK_Privileges_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Privileges" EntitySet="Privileges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductTabs_Products" Association="rsbcaModel.FK_ProductTabs_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductTabs" EntitySet="ProductTabs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PromoCategories_Promos" Association="rsbcaModel.FK_PromoCategories_Promos">
+      <End Role="Promos" EntitySet="Promos" />
+      <End Role="PromoCategories" EntitySet="PromoCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="rsbcaModel.FK_Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Videos_VideoCategories" Association="rsbcaModel.FK_Videos_VideoCategories">
+      <End Role="VideoCategories" EntitySet="VideoCategories" />
+      <End Role="Videos" EntitySet="Videos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ApiKey">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="api_key" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BranchCategory">
+    <Key>
+      <PropertyRef Name="BranchCategoryId" />
+    </Key>
+    <Property Name="BranchCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Branch" Relationship="rsbcaModel.FK_BranchInterests_Branchs" FromRole="BranchCategories" ToRole="Branchs" />
+    <NavigationProperty Name="InterestCategory" Relationship="rsbcaModel.FK_BranchInterests_InterestCategories" FromRole="BranchCategories" ToRole="InterestCategories" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="BranchCategories" Relationship="rsbcaModel.FK_BranchInterests_Branchs" FromRole="Branchs" ToRole="BranchCategories" />
+    <NavigationProperty Name="BranchVideos" Relationship="rsbcaModel.FK_BranchVideos_Branchs" FromRole="Branchs" ToRole="BranchVideos" />
+  </EntityType>
+  <EntityType Name="BranchVideo">
+    <Key>
+      <PropertyRef Name="BranchVideoId" />
+    </Key>
+    <Property Name="BranchVideoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <Property Name="VideoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Branch" Relationship="rsbcaModel.FK_BranchVideos_Branchs" FromRole="BranchVideos" ToRole="Branchs" />
+    <NavigationProperty Name="Video" Relationship="rsbcaModel.FK_BranchVideos_Videos" FromRole="BranchVideos" ToRole="Videos" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="DeviceCode" />
+    </Key>
+    <Property Name="DeviceCode" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="VisualForms" Relationship="rsbcaModel.FK_VisualForms_Devices" FromRole="Devices" ToRole="VisualForms" />
+  </EntityType>
+  <EntityType Name="InterestCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="IconImage" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="BranchCategories" Relationship="rsbcaModel.FK_BranchInterests_InterestCategories" FromRole="InterestCategories" ToRole="BranchCategories" />
+    <NavigationProperty Name="PromoCategories" Relationship="rsbcaModel.FK_PromoCategories_InterestCategories" FromRole="InterestCategories" ToRole="PromoCategories" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Privileges" Relationship="rsbcaModel.FK_Privileges_Menus" FromRole="Menus" ToRole="Privileges" />
+  </EntityType>
+  <EntityType Name="Privilege">
+    <Key>
+      <PropertyRef Name="PrivilegeId" />
+    </Key>
+    <Property Name="PrivilegeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="MenuId" Type="Int32" Nullable="false" />
+    <Property Name="Write" Type="Byte" Nullable="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <Property Name="Del" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Menu" Relationship="rsbcaModel.FK_Privileges_Menus" FromRole="Privileges" ToRole="Menus" />
+    <NavigationProperty Name="Role" Relationship="rsbcaModel.FK_Privileges_Roles" FromRole="Privileges" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="ImageThumbnail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ImageContent" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="ProductTabs" Relationship="rsbcaModel.FK_ProductTabs_Products" FromRole="Products" ToRole="ProductTabs" />
+  </EntityType>
+  <EntityType Name="ProductTab">
+    <Key>
+      <PropertyRef Name="TabId" />
+    </Key>
+    <Property Name="TabId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="TabContent" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="HtmlFile" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="rsbcaModel.FK_ProductTabs_Products" FromRole="ProductTabs" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="PromoCategory">
+    <Key>
+      <PropertyRef Name="PromoCategoryId" />
+    </Key>
+    <Property Name="PromoCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PromoId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="InterestCategory" Relationship="rsbcaModel.FK_PromoCategories_InterestCategories" FromRole="PromoCategories" ToRole="InterestCategories" />
+    <NavigationProperty Name="Promo" Relationship="rsbcaModel.FK_PromoCategories_Promos" FromRole="PromoCategories" ToRole="Promos" />
+  </EntityType>
+  <EntityType Name="Promo">
+    <Key>
+      <PropertyRef Name="PromoId" />
+    </Key>
+    <Property Name="PromoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Detail" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="HtmlFile" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ImageThumbnail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ImageDetail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <Property Name="PublishDate" Type="DateTime" />
+    <Property Name="PublishStart" Type="DateTime" />
+    <Property Name="PublishEnd" Type="DateTime" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="PromoCategories" Relationship="rsbcaModel.FK_PromoCategories_Promos" FromRole="Promos" ToRole="PromoCategories" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="Privileges" Relationship="rsbcaModel.FK_Privileges_Roles" FromRole="Roles" ToRole="Privileges" />
+    <NavigationProperty Name="Users" Relationship="rsbcaModel.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="rsbcaModel.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="VideoCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="IconImage" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Videos" Relationship="rsbcaModel.FK_Videos_VideoCategories" FromRole="VideoCategories" ToRole="Videos" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="VideoId" />
+    </Key>
+    <Property Name="VideoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="ImageThumbnail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="FileName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Publish" Type="Byte" Nullable="false" />
+    <Property Name="PublishType" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PublishStart" Type="DateTime" />
+    <Property Name="PublishEnd" Type="DateTime" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="BranchVideos" Relationship="rsbcaModel.FK_BranchVideos_Videos" FromRole="Videos" ToRole="BranchVideos" />
+    <NavigationProperty Name="VideoCategory" Relationship="rsbcaModel.FK_Videos_VideoCategories" FromRole="Videos" ToRole="VideoCategories" />
+  </EntityType>
+  <EntityType Name="VisualForm">
+    <Key>
+      <PropertyRef Name="FormId" />
+    </Key>
+    <Property Name="FormId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceCode" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="IdentityType" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="IdentityNo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FormType" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Inputs" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="CsId" Type="Byte" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" />
+    <Property Name="ClosedDate" Type="DateTime" />
+    <NavigationProperty Name="Device" Relationship="rsbcaModel.FK_VisualForms_Devices" FromRole="VisualForms" ToRole="Devices" />
+  </EntityType>
+  <EntityType Name="VisualFormTemp">
+    <Key>
+      <PropertyRef Name="TempId" />
+    </Key>
+    <Property Name="TempId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+    <Property Name="FieldName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Inputs" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_BranchInterests_Branchs">
+    <End Role="Branchs" Type="rsbcaModel.Branch" Multiplicity="1" />
+    <End Role="BranchCategories" Type="rsbcaModel.BranchCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="BranchCategories">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BranchInterests_InterestCategories">
+    <End Role="InterestCategories" Type="rsbcaModel.InterestCategory" Multiplicity="1" />
+    <End Role="BranchCategories" Type="rsbcaModel.BranchCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InterestCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="BranchCategories">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BranchVideos_Branchs">
+    <End Role="Branchs" Type="rsbcaModel.Branch" Multiplicity="1" />
+    <End Role="BranchVideos" Type="rsbcaModel.BranchVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branchs">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="BranchVideos">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BranchVideos_Videos">
+    <End Role="Videos" Type="rsbcaModel.Video" Multiplicity="1" />
+    <End Role="BranchVideos" Type="rsbcaModel.BranchVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Videos">
+        <PropertyRef Name="VideoId" />
+      </Principal>
+      <Dependent Role="BranchVideos">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VisualForms_Devices">
+    <End Role="Devices" Type="rsbcaModel.Device" Multiplicity="1" />
+    <End Role="VisualForms" Type="rsbcaModel.VisualForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Devices">
+        <PropertyRef Name="DeviceCode" />
+      </Principal>
+      <Dependent Role="VisualForms">
+        <PropertyRef Name="DeviceCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PromoCategories_InterestCategories">
+    <End Role="InterestCategories" Type="rsbcaModel.InterestCategory" Multiplicity="1" />
+    <End Role="PromoCategories" Type="rsbcaModel.PromoCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InterestCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="PromoCategories">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Privileges_Menus">
+    <End Role="Menus" Type="rsbcaModel.Menu" Multiplicity="1" />
+    <End Role="Privileges" Type="rsbcaModel.Privilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menus">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="Privileges">
+        <PropertyRef Name="MenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Privileges_Roles">
+    <End Role="Roles" Type="rsbcaModel.Role" Multiplicity="1" />
+    <End Role="Privileges" Type="rsbcaModel.Privilege" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Privileges">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductTabs_Products">
+    <End Role="Products" Type="rsbcaModel.Product" Multiplicity="1" />
+    <End Role="ProductTabs" Type="rsbcaModel.ProductTab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductTabs">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PromoCategories_Promos">
+    <End Role="Promos" Type="rsbcaModel.Promo" Multiplicity="1" />
+    <End Role="PromoCategories" Type="rsbcaModel.PromoCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promos">
+        <PropertyRef Name="PromoId" />
+      </Principal>
+      <Dependent Role="PromoCategories">
+        <PropertyRef Name="PromoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles">
+    <End Role="Roles" Type="rsbcaModel.Role" Multiplicity="1" />
+    <End Role="Users" Type="rsbcaModel.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Videos_VideoCategories">
+    <End Role="VideoCategories" Type="rsbcaModel.VideoCategory" Multiplicity="1" />
+    <End Role="Videos" Type="rsbcaModel.Video" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VideoCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Videos">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

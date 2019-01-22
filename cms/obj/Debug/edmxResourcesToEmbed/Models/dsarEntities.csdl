@@ -1,0 +1,1653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dsarModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="dsarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ABMs" EntityType="dsarModel.ABM" />
+    <EntitySet Name="Absensis" EntityType="dsarModel.Absensi" />
+    <EntitySet Name="Areas" EntityType="dsarModel.Area" />
+    <EntitySet Name="CallReasons" EntityType="dsarModel.CallReason" />
+    <EntitySet Name="LobBranchs" EntityType="dsarModel.LobBranch" />
+    <EntitySet Name="Lobs" EntityType="dsarModel.Lob" />
+    <EntitySet Name="ProductCategories" EntityType="dsarModel.ProductCategory" />
+    <EntitySet Name="ProductVariants" EntityType="dsarModel.ProductVariant" />
+    <EntitySet Name="RBHs" EntityType="dsarModel.RBH" />
+    <EntitySet Name="Regions" EntityType="dsarModel.Region" />
+    <EntitySet Name="Sales" EntityType="dsarModel.Sale" />
+    <EntitySet Name="SalesTeams" EntityType="dsarModel.SalesTeam" />
+    <AssociationSet Name="FK_Sales_ABM" Association="dsarModel.FK_Sales_ABM">
+      <End EntitySet="ABMs" Role="ABM" />
+      <End EntitySet="Sales" Role="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Absensi_Sales" Association="dsarModel.FK_Absensi_Sales">
+      <End EntitySet="Sales" Role="Sales" />
+      <End EntitySet="Absensis" Role="Absensi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Areas_Regions" Association="dsarModel.FK_Areas_Regions">
+      <End EntitySet="Regions" Role="Regions" />
+      <End EntitySet="Areas" Role="Areas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LobBranchs_Lobs" Association="dsarModel.FK_LobBranchs_Lobs">
+      <End EntitySet="Lobs" Role="Lobs" />
+      <End EntitySet="LobBranchs" Role="LobBranchs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Lobs" Association="dsarModel.FK_Sales_Lobs">
+      <End EntitySet="Lobs" Role="Lobs" />
+      <End EntitySet="Sales" Role="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RBH_Regions" Association="dsarModel.FK_RBH_Regions">
+      <End EntitySet="Regions" Role="Regions" />
+      <End EntitySet="RBHs" Role="RBH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_RBH" Association="dsarModel.FK_Sales_RBH">
+      <End EntitySet="RBHs" Role="RBH" />
+      <End EntitySet="Sales" Role="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_SalesTeams" Association="dsarModel.FK_Sales_SalesTeams">
+      <End EntitySet="SalesTeams" Role="SalesTeams" />
+      <End EntitySet="Sales" Role="Sales" />
+    </AssociationSet>
+    <EntitySet Name="SalesManagers" EntityType="dsarModel.SalesManager" />
+    <AssociationSet Name="FK_Sales_SalesManagers" Association="dsarModel.FK_Sales_SalesManagers">
+      <End EntitySet="SalesManagers" Role="SalesManager" />
+      <End EntitySet="Sales" Role="Sale" />
+    </AssociationSet>
+    <EntitySet Name="Calls" EntityType="dsarModel.Call" />
+    <EntitySet Name="Visits" EntityType="dsarModel.Visit" />
+    <AssociationSet Name="FK_Calls_CallReasons" Association="dsarModel.FK_Calls_CallReasons">
+      <End EntitySet="CallReasons" Role="CallReason" />
+      <End EntitySet="Calls" Role="Call" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Calls_Sales" Association="dsarModel.FK_Calls_Sales">
+      <End EntitySet="Sales" Role="Sale" />
+      <End EntitySet="Calls" Role="Call" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visits_Sales" Association="dsarModel.FK_Visits_Sales">
+      <End EntitySet="Sales" Role="Sale" />
+      <End EntitySet="Visits" Role="Visit" />
+    </AssociationSet>
+    <EntitySet Name="VisitReasons" EntityType="dsarModel.VisitReason" />
+    <AssociationSet Name="FK_Visits_VisitReasons" Association="dsarModel.FK_Visits_VisitReasons">
+      <End EntitySet="VisitReasons" Role="VisitReason" />
+      <End EntitySet="Visits" Role="Visit" />
+    </AssociationSet>
+    <EntitySet Name="NasabahProducts" EntityType="dsarModel.NasabahProduct" />
+    <AssociationSet Name="FK_NasabahProducts_ProductVariants" Association="dsarModel.FK_NasabahProducts_ProductVariants">
+      <End EntitySet="ProductVariants" Role="ProductVariant" />
+      <End EntitySet="NasabahProducts" Role="NasabahProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NasabahProducts_Sales" Association="dsarModel.FK_NasabahProducts_Sales">
+      <End EntitySet="Sales" Role="Sale" />
+      <End EntitySet="NasabahProducts" Role="NasabahProduct" />
+    </AssociationSet>
+    <EntitySet Name="BranchManagers" EntityType="dsarModel.BranchManager" />
+    <EntitySet Name="Branchs" EntityType="dsarModel.Branch" />
+    <AssociationSet Name="FK_Branchs_Areas" Association="dsarModel.FK_Branchs_Areas">
+      <End EntitySet="Areas" Role="Area" />
+      <End EntitySet="Branchs" Role="Branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_BranchManagers" Association="dsarModel.FK_Sales_BranchManagers">
+      <End EntitySet="BranchManagers" Role="BranchManager" />
+      <End EntitySet="Sales" Role="Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LobBranchs_Lobs1" Association="dsarModel.FK_LobBranchs_Lobs1">
+      <End EntitySet="Branchs" Role="Branch" />
+      <End EntitySet="LobBranchs" Role="LobBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Branchs" Association="dsarModel.FK_Sales_Branchs">
+      <End EntitySet="Branchs" Role="Branch" />
+      <End EntitySet="Sales" Role="Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesManagers_Branchs" Association="dsarModel.FK_SalesManagers_Branchs">
+      <End EntitySet="Branchs" Role="Branch" />
+      <End EntitySet="SalesManagers" Role="SalesManager" />
+    </AssociationSet>
+    <EntitySet Name="Nasabahs" EntityType="dsarModel.Nasabah" />
+    <AssociationSet Name="FK_Calls_Nasabah" Association="dsarModel.FK_Calls_Nasabah">
+      <End EntitySet="Nasabahs" Role="Nasabah" />
+      <End EntitySet="Calls" Role="Call" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NasabahProducts_Nasabah" Association="dsarModel.FK_NasabahProducts_Nasabah">
+      <End EntitySet="Nasabahs" Role="Nasabah" />
+      <End EntitySet="NasabahProducts" Role="NasabahProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visits_Nasabah" Association="dsarModel.FK_Visits_Nasabah">
+      <End EntitySet="Nasabahs" Role="Nasabah" />
+      <End EntitySet="Visits" Role="Visit" />
+    </AssociationSet>
+    <EntitySet Name="NasabahImports" EntityType="dsarModel.NasabahImport" />
+    <EntitySet Name="News" EntityType="dsarModel.News" />
+    <EntitySet Name="SalesNasabahs" EntityType="dsarModel.SalesNasabah" />
+    <AssociationSet Name="FK_SalesNasabah_Nasabah" Association="dsarModel.FK_SalesNasabah_Nasabah">
+      <End EntitySet="Nasabahs" Role="Nasabah" />
+      <End EntitySet="SalesNasabahs" Role="SalesNasabah" />
+    </AssociationSet>
+    <EntitySet Name="Products" EntityType="dsarModel.Product" />
+    <AssociationSet Name="FK_Calls_Products" Association="dsarModel.FK_Calls_Products">
+      <End EntitySet="Products" Role="Product" />
+      <End EntitySet="Calls" Role="Call" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NasabahProducts_Products" Association="dsarModel.FK_NasabahProducts_Products">
+      <End EntitySet="Products" Role="Product" />
+      <End EntitySet="NasabahProducts" Role="NasabahProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_ProductCategories" Association="dsarModel.FK_Products_ProductCategories">
+      <End EntitySet="ProductCategories" Role="ProductCategory" />
+      <End EntitySet="Products" Role="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductVariants_Products" Association="dsarModel.FK_ProductVariants_Products">
+      <End EntitySet="Products" Role="Product" />
+      <End EntitySet="ProductVariants" Role="ProductVariant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesNasabah_Products" Association="dsarModel.FK_SalesNasabah_Products">
+      <End EntitySet="Products" Role="Product" />
+      <End EntitySet="SalesNasabahs" Role="SalesNasabah" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visits_Products" Association="dsarModel.FK_Visits_Products">
+      <End EntitySet="Products" Role="Product" />
+      <End EntitySet="Visits" Role="Visit" />
+    </AssociationSet>
+    <EntitySet Name="ABM_Absensi" EntityType="dsarModel.ABM_Absensi" />
+    <EntitySet Name="aspnet_Applications" EntityType="dsarModel.aspnet_Applications" />
+    <EntitySet Name="aspnet_Membership" EntityType="dsarModel.aspnet_Membership" />
+    <EntitySet Name="aspnet_Paths" EntityType="dsarModel.aspnet_Paths" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="dsarModel.aspnet_PersonalizationAllUsers" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="dsarModel.aspnet_PersonalizationPerUser" />
+    <EntitySet Name="aspnet_Profile" EntityType="dsarModel.aspnet_Profile" />
+    <EntitySet Name="aspnet_Roles" EntityType="dsarModel.aspnet_Roles" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="dsarModel.aspnet_SchemaVersions" />
+    <EntitySet Name="aspnet_Users" EntityType="dsarModel.aspnet_Users" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="dsarModel.aspnet_WebEvent_Events" />
+    <EntitySet Name="BM_Absensi" EntityType="dsarModel.BM_Absensi" />
+    <EntitySet Name="PipelineDetails" EntityType="dsarModel.PipelineDetail" />
+    <EntitySet Name="RDs" EntityType="dsarModel.RD" />
+    <EntitySet Name="SM_Absensi" EntityType="dsarModel.SM_Absensi" />
+    <AssociationSet Name="FK__aspnet_Me__Appli__7A672E12" Association="dsarModel.FK__aspnet_Me__Appli__7A672E12">
+      <End EntitySet="aspnet_Applications" Role="aspnet_Applications" />
+      <End EntitySet="aspnet_Membership" Role="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pa__Appli__7C4F7684" Association="dsarModel.FK__aspnet_Pa__Appli__7C4F7684">
+      <End EntitySet="aspnet_Applications" Role="aspnet_Applications" />
+      <End EntitySet="aspnet_Paths" Role="aspnet_Paths" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__01142BA1" Association="dsarModel.FK__aspnet_Ro__Appli__01142BA1">
+      <End EntitySet="aspnet_Applications" Role="aspnet_Applications" />
+      <End EntitySet="aspnet_Roles" Role="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__02084FDA" Association="dsarModel.FK__aspnet_Us__Appli__02084FDA">
+      <End EntitySet="aspnet_Applications" Role="aspnet_Applications" />
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__7B5B524B" Association="dsarModel.FK__aspnet_Me__UserI__7B5B524B">
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+      <End EntitySet="aspnet_Membership" Role="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__7D439ABD" Association="dsarModel.FK__aspnet_Pe__PathI__7D439ABD">
+      <End EntitySet="aspnet_Paths" Role="aspnet_Paths" />
+      <End EntitySet="aspnet_PersonalizationAllUsers" Role="aspnet_PersonalizationAllUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__7E37BEF6" Association="dsarModel.FK__aspnet_Pe__PathI__7E37BEF6">
+      <End EntitySet="aspnet_Paths" Role="aspnet_Paths" />
+      <End EntitySet="aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__7F2BE32F" Association="dsarModel.FK__aspnet_Pe__UserI__7F2BE32F">
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+      <End EntitySet="aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__00200768" Association="dsarModel.FK__aspnet_Pr__UserI__00200768">
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+      <End EntitySet="aspnet_Profile" Role="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="aspnet_UsersInRoles" Association="dsarModel.aspnet_UsersInRoles">
+      <End EntitySet="aspnet_Roles" Role="aspnet_Roles" />
+      <End EntitySet="aspnet_Users" Role="aspnet_Users" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="dsarModel.User" />
+    <EntitySet Name="ProductsLogs" EntityType="dsarModel.ProductsLog" />
+    <EntitySet Name="ChangePasswordLogs" EntityType="dsarModel.ChangePasswordLog" />
+    <EntitySet Name="UserLoginLogs" EntityType="dsarModel.UserLoginLog" />
+    <EntitySet Name="MaterParameters" EntityType="dsarModel.MaterParameter" />
+    <EntitySet Name="Admins" EntityType="dsarModel.Admin" />
+    <EntitySet Name="ProductVariantsLogs" EntityType="dsarModel.ProductVariantsLog" />
+    <EntitySet Name="ProductCategoriesLogs" EntityType="dsarModel.ProductCategoriesLog" />
+    <EntitySet Name="AreasLogs" EntityType="dsarModel.AreasLog" />
+    <EntitySet Name="BranchsLogs" EntityType="dsarModel.BranchsLog" />
+    <EntitySet Name="CallReasonsLogs" EntityType="dsarModel.CallReasonsLog" />
+    <EntitySet Name="RegionsLogs" EntityType="dsarModel.RegionsLog" />
+    <EntitySet Name="SalesTeamLogs" EntityType="dsarModel.SalesTeamLog" />
+    <EntitySet Name="VisitReasonLogs" EntityType="dsarModel.VisitReasonLog" />
+    <EntitySet Name="ABMLogs" EntityType="dsarModel.ABMLog" />
+    <EntitySet Name="AdminLogs" EntityType="dsarModel.AdminLog" />
+    <EntitySet Name="BranchManagerLogs" EntityType="dsarModel.BranchManagerLog" />
+    <EntitySet Name="RBHLogs" EntityType="dsarModel.RBHLog" />
+    <EntitySet Name="SalesManagerLogs" EntityType="dsarModel.SalesManagerLog" />
+    <EntitySet Name="SalesLogs" EntityType="dsarModel.SalesLog" />
+    <EntitySet Name="NewsLogs" EntityType="dsarModel.NewsLog" />
+    <EntitySet Name="NasabahLogs" EntityType="dsarModel.NasabahLog" />
+  </EntityContainer>
+  <EntityType Name="ABM">
+    <Key>
+      <PropertyRef Name="AbmId" />
+    </Key>
+    <Property Name="AbmId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Npk" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Email" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="AreaCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Sales" Relationship="dsarModel.FK_Sales_ABM" FromRole="ABM" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Absensi">
+    <Key>
+      <PropertyRef Name="AbsensiId" />
+    </Key>
+    <Property Name="AbsensiId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="SalesId" Nullable="false" Type="Int32" />
+    <Property Name="Hadir" Nullable="false" Type="Byte" />
+    <Property Name="DateAbsen" Nullable="false" Type="DateTime" />
+    <Property Name="DateSubmit" Nullable="false" Type="DateTime" />
+    <Property Name="Reason" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Sale" Relationship="dsarModel.FK_Absensi_Sales" FromRole="Absensi" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="AreaCode" />
+    </Key>
+    <Property Name="AreaCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="RegionCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Region" Relationship="dsarModel.FK_Areas_Regions" FromRole="Areas" ToRole="Regions" />
+    <NavigationProperty Name="Branchs" Relationship="dsarModel.FK_Branchs_Areas" FromRole="Area" ToRole="Branch" />
+  </EntityType>
+  <EntityType Name="CallReason">
+    <Key>
+      <PropertyRef Name="ReasonId" />
+    </Key>
+    <Property Name="ReasonId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Calls" Relationship="dsarModel.FK_Calls_CallReasons" FromRole="CallReason" ToRole="Call" />
+  </EntityType>
+  <EntityType Name="LobBranch">
+    <Key>
+      <PropertyRef Name="LobBranchId" />
+    </Key>
+    <Property Name="LobBranchId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="LobId" Nullable="false" Type="Int32" />
+    <Property Name="BranchCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CallTarget" Type="Int32" />
+    <Property Name="VisitTarget" Type="Int32" />
+    <NavigationProperty Name="Lob" Relationship="dsarModel.FK_LobBranchs_Lobs" FromRole="LobBranchs" ToRole="Lobs" />
+    <NavigationProperty Name="Branch" Relationship="dsarModel.FK_LobBranchs_Lobs1" FromRole="LobBranch" ToRole="Branch" />
+  </EntityType>
+  <EntityType Name="Lob">
+    <Key>
+      <PropertyRef Name="LobId" />
+    </Key>
+    <Property Name="LobId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CallTarget" Type="Int32" />
+    <Property Name="VisitTarget" Type="Int32" />
+    <NavigationProperty Name="LobBranchs" Relationship="dsarModel.FK_LobBranchs_Lobs" FromRole="Lobs" ToRole="LobBranchs" />
+    <NavigationProperty Name="Sales" Relationship="dsarModel.FK_Sales_Lobs" FromRole="Lobs" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Products" Relationship="dsarModel.FK_Products_ProductCategories" FromRole="ProductCategory" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductVariant">
+    <Key>
+      <PropertyRef Name="VariantId" />
+    </Key>
+    <Property Name="VariantId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="ProductId" Nullable="false" Type="Int32" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="NasabahProducts" Relationship="dsarModel.FK_NasabahProducts_ProductVariants" FromRole="ProductVariant" ToRole="NasabahProduct" />
+    <NavigationProperty Name="Product" Relationship="dsarModel.FK_ProductVariants_Products" FromRole="ProductVariant" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="RBH">
+    <Key>
+      <PropertyRef Name="RbhId" />
+    </Key>
+    <Property Name="RbhId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Npk" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Email" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="RegionCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Region" Relationship="dsarModel.FK_RBH_Regions" FromRole="RBH" ToRole="Regions" />
+    <NavigationProperty Name="Sales" Relationship="dsarModel.FK_Sales_RBH" FromRole="RBH" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegionCode" />
+    </Key>
+    <Property Name="RegionCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Areas" Relationship="dsarModel.FK_Areas_Regions" FromRole="Regions" ToRole="Areas" />
+    <NavigationProperty Name="RBHs" Relationship="dsarModel.FK_RBH_Regions" FromRole="Regions" ToRole="RBH" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="SalesId" />
+    </Key>
+    <Property Name="SalesId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Npk" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Email" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="TeamId" Nullable="false" Type="Int32" />
+    <Property Name="BranchCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="SmId" Type="Int32" />
+    <Property Name="BmId" Type="Int32" />
+    <Property Name="AbmId" Type="Int32" />
+    <Property Name="RbhId" Type="Int32" />
+    <Property Name="LobId" Type="Int32" />
+    <Property Name="JoinDate" Type="DateTime" />
+    <NavigationProperty Name="ABM" Relationship="dsarModel.FK_Sales_ABM" FromRole="Sales" ToRole="ABM" />
+    <NavigationProperty Name="Absensis" Relationship="dsarModel.FK_Absensi_Sales" FromRole="Sales" ToRole="Absensi" />
+    <NavigationProperty Name="Lob" Relationship="dsarModel.FK_Sales_Lobs" FromRole="Sales" ToRole="Lobs" />
+    <NavigationProperty Name="RBH" Relationship="dsarModel.FK_Sales_RBH" FromRole="Sales" ToRole="RBH" />
+    <NavigationProperty Name="SalesTeam" Relationship="dsarModel.FK_Sales_SalesTeams" FromRole="Sales" ToRole="SalesTeams" />
+    <NavigationProperty Name="SalesManager" Relationship="dsarModel.FK_Sales_SalesManagers" FromRole="Sale" ToRole="SalesManager" />
+    <NavigationProperty Name="Calls" Relationship="dsarModel.FK_Calls_Sales" FromRole="Sale" ToRole="Call" />
+    <NavigationProperty Name="Visits" Relationship="dsarModel.FK_Visits_Sales" FromRole="Sale" ToRole="Visit" />
+    <NavigationProperty Name="NasabahProducts" Relationship="dsarModel.FK_NasabahProducts_Sales" FromRole="Sale" ToRole="NasabahProduct" />
+    <NavigationProperty Name="BranchManager" Relationship="dsarModel.FK_Sales_BranchManagers" FromRole="Sale" ToRole="BranchManager" />
+    <NavigationProperty Name="Branch" Relationship="dsarModel.FK_Sales_Branchs" FromRole="Sale" ToRole="Branch" />
+  </EntityType>
+  <EntityType Name="SalesTeam">
+    <Key>
+      <PropertyRef Name="TeamId" />
+    </Key>
+    <Property Name="TeamId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Sales" Relationship="dsarModel.FK_Sales_SalesTeams" FromRole="SalesTeams" ToRole="Sales" />
+  </EntityType>
+  <Association Name="FK_Sales_ABM">
+    <End Type="dsarModel.ABM" Multiplicity="0..1" Role="ABM" />
+    <End Type="dsarModel.Sale" Multiplicity="*" Role="Sales" />
+    <ReferentialConstraint>
+      <Principal Role="ABM">
+        <PropertyRef Name="AbmId" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="AbmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Absensi_Sales">
+    <End Type="dsarModel.Sale" Multiplicity="1" Role="Sales" />
+    <End Type="dsarModel.Absensi" Multiplicity="*" Role="Absensi" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="SalesId" />
+      </Principal>
+      <Dependent Role="Absensi">
+        <PropertyRef Name="SalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Areas_Regions">
+    <End Type="dsarModel.Region" Multiplicity="1" Role="Regions" />
+    <End Type="dsarModel.Area" Multiplicity="*" Role="Areas" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="RegionCode" />
+      </Principal>
+      <Dependent Role="Areas">
+        <PropertyRef Name="RegionCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LobBranchs_Lobs">
+    <End Type="dsarModel.Lob" Multiplicity="1" Role="Lobs" />
+    <End Type="dsarModel.LobBranch" Multiplicity="*" Role="LobBranchs" />
+    <ReferentialConstraint>
+      <Principal Role="Lobs">
+        <PropertyRef Name="LobId" />
+      </Principal>
+      <Dependent Role="LobBranchs">
+        <PropertyRef Name="LobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Lobs">
+    <End Type="dsarModel.Lob" Multiplicity="0..1" Role="Lobs" />
+    <End Type="dsarModel.Sale" Multiplicity="*" Role="Sales" />
+    <ReferentialConstraint>
+      <Principal Role="Lobs">
+        <PropertyRef Name="LobId" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="LobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RBH_Regions">
+    <End Type="dsarModel.Region" Multiplicity="1" Role="Regions" />
+    <End Type="dsarModel.RBH" Multiplicity="*" Role="RBH" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="RegionCode" />
+      </Principal>
+      <Dependent Role="RBH">
+        <PropertyRef Name="RegionCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_RBH">
+    <End Type="dsarModel.RBH" Multiplicity="0..1" Role="RBH" />
+    <End Type="dsarModel.Sale" Multiplicity="*" Role="Sales" />
+    <ReferentialConstraint>
+      <Principal Role="RBH">
+        <PropertyRef Name="RbhId" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="RbhId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_SalesTeams">
+    <End Type="dsarModel.SalesTeam" Multiplicity="1" Role="SalesTeams" />
+    <End Type="dsarModel.Sale" Multiplicity="*" Role="Sales" />
+    <ReferentialConstraint>
+      <Principal Role="SalesTeams">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SalesManager">
+    <Key>
+      <PropertyRef Name="ManagerId" />
+    </Key>
+    <Property Name="ManagerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Npk" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Email" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="BranchCode" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Sales" Relationship="dsarModel.FK_Sales_SalesManagers" FromRole="SalesManager" ToRole="Sale" />
+    <NavigationProperty Name="Branch" Relationship="dsarModel.FK_SalesManagers_Branchs" FromRole="SalesManager" ToRole="Branch" />
+  </EntityType>
+  <Association Name="FK_Sales_SalesManagers">
+    <End Type="dsarModel.SalesManager" Multiplicity="0..1" Role="SalesManager" />
+    <End Type="dsarModel.Sale" Multiplicity="*" Role="Sale" />
+    <ReferentialConstraint>
+      <Principal Role="SalesManager">
+        <PropertyRef Name="ManagerId" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="SmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Call">
+    <Key>
+      <PropertyRef Name="CallId" />
+    </Key>
+    <Property Name="CallId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="SalesId" Nullable="false" Type="Int32" />
+    <Property Name="NasabahId" Nullable="false" Type="Int64" />
+    <Property Name="ProductId" Nullable="false" Type="Int32" />
+    <Property Name="ReasonId" Nullable="false" Type="Int32" />
+    <Property Name="CallDate" Nullable="false" Type="DateTime" />
+    <Property Name="VisitSchedule" Type="DateTime" />
+    <Property Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CreatedDate" Nullable="false" Type="DateTime" />
+    <NavigationProperty Name="CallReason" Relationship="dsarModel.FK_Calls_CallReasons" FromRole="Call" ToRole="CallReason" />
+    <NavigationProperty Name="Sale" Relationship="dsarModel.FK_Calls_Sales" FromRole="Call" ToRole="Sale" />
+    <NavigationProperty Name="Nasabah" Relationship="dsarModel.FK_Calls_Nasabah" FromRole="Call" ToRole="Nasabah" />
+    <NavigationProperty Name="Product" Relationship="dsarModel.FK_Calls_Products" FromRole="Call" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Visit">
+    <Key>
+      <PropertyRef Name="VisitId" />
+    </Key>
+    <Property Name="VisitId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="SalesId" Nullable="false" Type="Int32" />
+    <Property Name="NasabahId" Nullable="false" Type="Int64" />
+    <Property Name="ProductId" Nullable="false" Type="Int32" />
+    <Property Name="ReasonId" Type="Int32" />
+    <Property Name="VisitDate" Nullable="false" Type="DateTime" />
+    <Property Name="Status" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CreatedDate" Nullable="false" Type="DateTime" />
+    <NavigationProperty Name="Sale" Relationship="dsarModel.FK_Visits_Sales" FromRole="Visit" ToRole="Sale" />
+    <NavigationProperty Name="VisitReason" Relationship="dsarModel.FK_Visits_VisitReasons" FromRole="Visit" ToRole="VisitReason" />
+    <NavigationProperty Name="Nasabah" Relationship="dsarModel.FK_Visits_Nasabah" FromRole="Visit" ToRole="Nasabah" />
+    <NavigationProperty Name="Product" Relationship="dsarModel.FK_Visits_Products" FromRole="Visit" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_Calls_CallReasons">
+    <End Type="dsarModel.CallReason" Multiplicity="1" Role="CallReason" />
+    <End Type="dsarModel.Call" Multiplicity="*" Role="Call" />
+    <ReferentialConstraint>
+      <Principal Role="CallReason">
+        <PropertyRef Name="ReasonId" />
+      </Principal>
+      <Dependent Role="Call">
+        <PropertyRef Name="ReasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Calls_Sales">
+    <End Type="dsarModel.Sale" Multiplicity="1" Role="Sale" />
+    <End Type="dsarModel.Call" Multiplicity="*" Role="Call" />
+    <ReferentialConstraint>
+      <Principal Role="Sale">
+        <PropertyRef Name="SalesId" />
+      </Principal>
+      <Dependent Role="Call">
+        <PropertyRef Name="SalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visits_Sales">
+    <End Type="dsarModel.Sale" Multiplicity="1" Role="Sale" />
+    <End Type="dsarModel.Visit" Multiplicity="*" Role="Visit" />
+    <ReferentialConstraint>
+      <Principal Role="Sale">
+        <PropertyRef Name="SalesId" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="SalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VisitReason">
+    <Key>
+      <PropertyRef Name="ReasonId" />
+    </Key>
+    <Property Name="ReasonId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Visits" Relationship="dsarModel.FK_Visits_VisitReasons" FromRole="VisitReason" ToRole="Visit" />
+  </EntityType>
+  <Association Name="FK_Visits_VisitReasons">
+    <End Type="dsarModel.VisitReason" Multiplicity="0..1" Role="VisitReason" />
+    <End Type="dsarModel.Visit" Multiplicity="*" Role="Visit" />
+    <ReferentialConstraint>
+      <Principal Role="VisitReason">
+        <PropertyRef Name="ReasonId" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="ReasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="NasabahProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="NasabahId" Nullable="false" Type="Int64" />
+    <Property Name="ProductId" Nullable="false" Type="Int32" />
+    <Property Name="VariantId" Type="Int32" />
+    <Property Name="SalesId" Type="Int32" />
+    <Property Name="CIF" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ACCT" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Amount" Precision="18" Scale="0" Type="Decimal" />
+    <Property Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="LastUpdate" Nullable="false" Type="DateTime" />
+    <Property Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="ProductVariant" Relationship="dsarModel.FK_NasabahProducts_ProductVariants" FromRole="NasabahProduct" ToRole="ProductVariant" />
+    <NavigationProperty Name="Sale" Relationship="dsarModel.FK_NasabahProducts_Sales" FromRole="NasabahProduct" ToRole="Sale" />
+    <NavigationProperty Name="Nasabah" Relationship="dsarModel.FK_NasabahProducts_Nasabah" FromRole="NasabahProduct" ToRole="Nasabah" />
+    <NavigationProperty Name="Product" Relationship="dsarModel.FK_NasabahProducts_Products" FromRole="NasabahProduct" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_NasabahProducts_ProductVariants">
+    <End Type="dsarModel.ProductVariant" Multiplicity="0..1" Role="ProductVariant" />
+    <End Type="dsarModel.NasabahProduct" Multiplicity="*" Role="NasabahProduct" />
+    <ReferentialConstraint>
+      <Principal Role="ProductVariant">
+        <PropertyRef Name="VariantId" />
+      </Principal>
+      <Dependent Role="NasabahProduct">
+        <PropertyRef Name="VariantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NasabahProducts_Sales">
+    <End Type="dsarModel.Sale" Multiplicity="0..1" Role="Sale" />
+    <End Type="dsarModel.NasabahProduct" Multiplicity="*" Role="NasabahProduct" />
+    <ReferentialConstraint>
+      <Principal Role="Sale">
+        <PropertyRef Name="SalesId" />
+      </Principal>
+      <Dependent Role="NasabahProduct">
+        <PropertyRef Name="SalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BranchManager">
+    <Key>
+      <PropertyRef Name="BmId" />
+    </Key>
+    <Property Name="BmId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Npk" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Email" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="BranchCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Sales" Relationship="dsarModel.FK_Sales_BranchManagers" FromRole="BranchManager" ToRole="Sale" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="BranchCode" />
+    </Key>
+    <Property Name="BranchCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="AreaCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Area" Relationship="dsarModel.FK_Branchs_Areas" FromRole="Branch" ToRole="Area" />
+    <NavigationProperty Name="LobBranchs" Relationship="dsarModel.FK_LobBranchs_Lobs1" FromRole="Branch" ToRole="LobBranch" />
+    <NavigationProperty Name="Sales" Relationship="dsarModel.FK_Sales_Branchs" FromRole="Branch" ToRole="Sale" />
+    <NavigationProperty Name="SalesManagers" Relationship="dsarModel.FK_SalesManagers_Branchs" FromRole="Branch" ToRole="SalesManager" />
+  </EntityType>
+  <Association Name="FK_Branchs_Areas">
+    <End Type="dsarModel.Area" Multiplicity="1" Role="Area" />
+    <End Type="dsarModel.Branch" Multiplicity="*" Role="Branch" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="AreaCode" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="AreaCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_BranchManagers">
+    <End Type="dsarModel.BranchManager" Multiplicity="0..1" Role="BranchManager" />
+    <End Type="dsarModel.Sale" Multiplicity="*" Role="Sale" />
+    <ReferentialConstraint>
+      <Principal Role="BranchManager">
+        <PropertyRef Name="BmId" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="BmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LobBranchs_Lobs1">
+    <End Type="dsarModel.Branch" Multiplicity="1" Role="Branch" />
+    <End Type="dsarModel.LobBranch" Multiplicity="*" Role="LobBranch" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchCode" />
+      </Principal>
+      <Dependent Role="LobBranch">
+        <PropertyRef Name="BranchCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Branchs">
+    <End Type="dsarModel.Branch" Multiplicity="1" Role="Branch" />
+    <End Type="dsarModel.Sale" Multiplicity="*" Role="Sale" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchCode" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="BranchCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesManagers_Branchs">
+    <End Type="dsarModel.Branch" Multiplicity="0..1" Role="Branch" />
+    <End Type="dsarModel.SalesManager" Multiplicity="*" Role="SalesManager" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchCode" />
+      </Principal>
+      <Dependent Role="SalesManager">
+        <PropertyRef Name="BranchCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Nasabah">
+    <Key>
+      <PropertyRef Name="NasabahId" />
+    </Key>
+    <Property Name="NasabahId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="GCIF" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="KtpId" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Gender" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="BirthDate" Type="DateTime" />
+    <Property Name="Address" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="HomePhone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="MobilePhone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CreatedDate" Nullable="false" Type="DateTime" />
+    <Property Name="ProductStatus" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Calls" Relationship="dsarModel.FK_Calls_Nasabah" FromRole="Nasabah" ToRole="Call" />
+    <NavigationProperty Name="NasabahProducts" Relationship="dsarModel.FK_NasabahProducts_Nasabah" FromRole="Nasabah" ToRole="NasabahProduct" />
+    <NavigationProperty Name="Visits" Relationship="dsarModel.FK_Visits_Nasabah" FromRole="Nasabah" ToRole="Visit" />
+    <NavigationProperty Name="SalesNasabahs" Relationship="dsarModel.FK_SalesNasabah_Nasabah" FromRole="Nasabah" ToRole="SalesNasabah" />
+  </EntityType>
+  <Association Name="FK_Calls_Nasabah">
+    <End Type="dsarModel.Nasabah" Multiplicity="1" Role="Nasabah" />
+    <End Type="dsarModel.Call" Multiplicity="*" Role="Call" />
+    <ReferentialConstraint>
+      <Principal Role="Nasabah">
+        <PropertyRef Name="NasabahId" />
+      </Principal>
+      <Dependent Role="Call">
+        <PropertyRef Name="NasabahId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NasabahProducts_Nasabah">
+    <End Type="dsarModel.Nasabah" Multiplicity="1" Role="Nasabah" />
+    <End Type="dsarModel.NasabahProduct" Multiplicity="*" Role="NasabahProduct" />
+    <ReferentialConstraint>
+      <Principal Role="Nasabah">
+        <PropertyRef Name="NasabahId" />
+      </Principal>
+      <Dependent Role="NasabahProduct">
+        <PropertyRef Name="NasabahId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visits_Nasabah">
+    <End Type="dsarModel.Nasabah" Multiplicity="1" Role="Nasabah" />
+    <End Type="dsarModel.Visit" Multiplicity="*" Role="Visit" />
+    <ReferentialConstraint>
+      <Principal Role="Nasabah">
+        <PropertyRef Name="NasabahId" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="NasabahId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="NasabahImport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="GCIF" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CIF" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ACCT" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="PRODUCT" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="PRODUCTID" Type="Int32" />
+    <Property Name="PRODUCTNAME" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="VARIANTID" Type="Int32" />
+    <Property Name="NAMA" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="TELEPONRUMAH" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="HANDPHONE" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ALAMAT" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="IDKTP" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="GENDER" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="TGLLAHIR" Type="DateTime" />
+    <Property Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="DateCreated" Nullable="false" Type="DateTime" />
+    <Property Name="NPK" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="PRODUCTSTATUS" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="IntroText" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ContentText" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Publish" Nullable="false" Type="Byte" />
+    <Property Name="NewsDate" Nullable="false" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="SalesNasabah">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="SalesId" Nullable="false" Type="Int32" />
+    <Property Name="NasabahId" Nullable="false" Type="Int64" />
+    <Property Name="IsReferral" Nullable="false" Type="Byte" />
+    <Property Name="RefferalFrom" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="ReferralStatus" Nullable="false" Type="Byte" />
+    <Property Name="CreatedDate" Nullable="false" Type="DateTime" />
+    <Property Name="LastUpdate" Nullable="false" Type="DateTime" />
+    <NavigationProperty Name="Nasabah" Relationship="dsarModel.FK_SalesNasabah_Nasabah" FromRole="SalesNasabah" ToRole="Nasabah" />
+    <NavigationProperty Name="Product" Relationship="dsarModel.FK_SalesNasabah_Products" FromRole="SalesNasabah" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_SalesNasabah_Nasabah">
+    <End Type="dsarModel.Nasabah" Multiplicity="1" Role="Nasabah" />
+    <End Type="dsarModel.SalesNasabah" Multiplicity="*" Role="SalesNasabah" />
+    <ReferentialConstraint>
+      <Principal Role="Nasabah">
+        <PropertyRef Name="NasabahId" />
+      </Principal>
+      <Dependent Role="SalesNasabah">
+        <PropertyRef Name="NasabahId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="CategoryId" Nullable="false" Type="Int32" />
+    <Property Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ImageName" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Calls" Relationship="dsarModel.FK_Calls_Products" FromRole="Product" ToRole="Call" />
+    <NavigationProperty Name="NasabahProducts" Relationship="dsarModel.FK_NasabahProducts_Products" FromRole="Product" ToRole="NasabahProduct" />
+    <NavigationProperty Name="ProductCategory" Relationship="dsarModel.FK_Products_ProductCategories" FromRole="Product" ToRole="ProductCategory" />
+    <NavigationProperty Name="ProductVariants" Relationship="dsarModel.FK_ProductVariants_Products" FromRole="Product" ToRole="ProductVariant" />
+    <NavigationProperty Name="SalesNasabahs" Relationship="dsarModel.FK_SalesNasabah_Products" FromRole="Product" ToRole="SalesNasabah" />
+    <NavigationProperty Name="Visits" Relationship="dsarModel.FK_Visits_Products" FromRole="Product" ToRole="Visit" />
+  </EntityType>
+  <Association Name="FK_Calls_Products">
+    <End Type="dsarModel.Product" Multiplicity="1" Role="Product" />
+    <End Type="dsarModel.Call" Multiplicity="*" Role="Call" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Call">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NasabahProducts_Products">
+    <End Type="dsarModel.Product" Multiplicity="1" Role="Product" />
+    <End Type="dsarModel.NasabahProduct" Multiplicity="*" Role="NasabahProduct" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="NasabahProduct">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_ProductCategories">
+    <End Type="dsarModel.ProductCategory" Multiplicity="1" Role="ProductCategory" />
+    <End Type="dsarModel.Product" Multiplicity="*" Role="Product" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductVariants_Products">
+    <End Type="dsarModel.Product" Multiplicity="1" Role="Product" />
+    <End Type="dsarModel.ProductVariant" Multiplicity="*" Role="ProductVariant" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductVariant">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesNasabah_Products">
+    <End Type="dsarModel.Product" Multiplicity="0..1" Role="Product" />
+    <End Type="dsarModel.SalesNasabah" Multiplicity="*" Role="SalesNasabah" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="SalesNasabah">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visits_Products">
+    <End Type="dsarModel.Product" Multiplicity="1" Role="Product" />
+    <End Type="dsarModel.Visit" Multiplicity="*" Role="Visit" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ABM_Absensi">
+    <Key>
+      <PropertyRef Name="ABMID" />
+      <PropertyRef Name="Hadir" />
+    </Key>
+    <Property Name="ABMID" Nullable="false" Type="Int32" />
+    <Property Name="LoginDt" Type="DateTime" />
+    <Property Name="LastLoginDate" Type="DateTime" />
+    <Property Name="LastActiveSession" Type="DateTime" />
+    <Property Name="Hadir" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+  </EntityType>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="LoweredApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ApplicationId" Nullable="false" Type="Guid" />
+    <Property Name="Description" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="dsarModel.FK__aspnet_Me__Appli__7A672E12" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="dsarModel.FK__aspnet_Pa__Appli__7C4F7684" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="dsarModel.FK__aspnet_Ro__Appli__01142BA1" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
+    <NavigationProperty Name="aspnet_Users" Relationship="dsarModel.FK__aspnet_Us__Appli__02084FDA" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Nullable="false" Type="Guid" />
+    <Property Name="UserId" Nullable="false" Type="Guid" />
+    <Property Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PasswordFormat" Nullable="false" Type="Int32" />
+    <Property Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Email" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="IsApproved" Nullable="false" Type="Boolean" />
+    <Property Name="IsLockedOut" Nullable="false" Type="Boolean" />
+    <Property Name="CreateDate" Nullable="false" Type="DateTime" />
+    <Property Name="LastLoginDate" Nullable="false" Type="DateTime" />
+    <Property Name="LastPasswordChangedDate" Nullable="false" Type="DateTime" />
+    <Property Name="LastLockoutDate" Nullable="false" Type="DateTime" />
+    <Property Name="FailedPasswordAttemptCount" Nullable="false" Type="Int32" />
+    <Property Name="FailedPasswordAttemptWindowStart" Nullable="false" Type="DateTime" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Nullable="false" Type="Int32" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" Type="DateTime" />
+    <Property Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="dsarModel.FK__aspnet_Me__Appli__7A672E12" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="dsarModel.FK__aspnet_Me__UserI__7B5B524B" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Paths">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="ApplicationId" Nullable="false" Type="Guid" />
+    <Property Name="PathId" Nullable="false" Type="Guid" />
+    <Property Name="Path" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="LoweredPath" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="dsarModel.FK__aspnet_Pa__Appli__7C4F7684" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="dsarModel.FK__aspnet_Pe__PathI__7D439ABD" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="dsarModel.FK__aspnet_Pe__PathI__7E37BEF6" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationAllUsers">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="PathId" Nullable="false" Type="Guid" />
+    <Property Name="PageSettings" Nullable="false" MaxLength="Max" FixedLength="false" Type="Binary" />
+    <Property Name="LastUpdatedDate" Nullable="false" Type="DateTime" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="dsarModel.FK__aspnet_Pe__PathI__7D439ABD" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationPerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" Type="Guid" />
+    <Property Name="PathId" Type="Guid" />
+    <Property Name="UserId" Type="Guid" />
+    <Property Name="PageSettings" Nullable="false" MaxLength="Max" FixedLength="false" Type="Binary" />
+    <Property Name="LastUpdatedDate" Nullable="false" Type="DateTime" />
+    <NavigationProperty Name="aspnet_Paths" Relationship="dsarModel.FK__aspnet_Pe__PathI__7E37BEF6" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
+    <NavigationProperty Name="aspnet_Users" Relationship="dsarModel.FK__aspnet_Pe__UserI__7F2BE32F" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Nullable="false" Type="Guid" />
+    <Property Name="PropertyNames" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PropertyValuesString" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PropertyValuesBinary" Nullable="false" MaxLength="Max" FixedLength="false" Type="Binary" />
+    <Property Name="LastUpdatedDate" Nullable="false" Type="DateTime" />
+    <NavigationProperty Name="aspnet_Users" Relationship="dsarModel.FK__aspnet_Pr__UserI__00200768" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Nullable="false" Type="Guid" />
+    <Property Name="RoleId" Nullable="false" Type="Guid" />
+    <Property Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Description" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="dsarModel.FK__aspnet_Ro__Appli__01142BA1" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Users" Relationship="dsarModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersions">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="CompatibleSchemaVersion" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="IsCurrentVersion" Nullable="false" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Nullable="false" Type="Guid" />
+    <Property Name="UserId" Nullable="false" Type="Guid" />
+    <Property Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="IsAnonymous" Nullable="false" Type="Boolean" />
+    <Property Name="LastActivityDate" Nullable="false" Type="DateTime" />
+    <NavigationProperty Name="aspnet_Applications" Relationship="dsarModel.FK__aspnet_Us__Appli__02084FDA" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="dsarModel.FK__aspnet_Me__UserI__7B5B524B" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="dsarModel.FK__aspnet_Pe__UserI__7F2BE32F" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
+    <NavigationProperty Name="aspnet_Profile" Relationship="dsarModel.FK__aspnet_Pr__UserI__00200768" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
+    <NavigationProperty Name="aspnet_Roles" Relationship="dsarModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+  </EntityType>
+  <EntityType Name="aspnet_WebEvent_Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" Type="String" />
+    <Property Name="EventTimeUtc" Nullable="false" Type="DateTime" />
+    <Property Name="EventTime" Nullable="false" Type="DateTime" />
+    <Property Name="EventType" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="EventSequence" Nullable="false" Precision="19" Scale="0" Type="Decimal" />
+    <Property Name="EventOccurrence" Nullable="false" Precision="19" Scale="0" Type="Decimal" />
+    <Property Name="EventCode" Nullable="false" Type="Int32" />
+    <Property Name="EventDetailCode" Nullable="false" Type="Int32" />
+    <Property Name="Message" MaxLength="1024" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ApplicationPath" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ApplicationVirtualPath" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="MachineName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="RequestUrl" MaxLength="1024" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ExceptionType" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Details" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+  </EntityType>
+  <EntityType Name="BM_Absensi">
+    <Key>
+      <PropertyRef Name="BMID" />
+      <PropertyRef Name="Hadir" />
+    </Key>
+    <Property Name="BMID" Nullable="false" Type="Int32" />
+    <Property Name="LoginDt" Type="DateTime" />
+    <Property Name="LastLoginDate" Type="DateTime" />
+    <Property Name="LastActiveSession" Type="DateTime" />
+    <Property Name="Hadir" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+  </EntityType>
+  <EntityType Name="PipelineDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="NasabahId" />
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="Status" />
+      <PropertyRef Name="LastUpdate" />
+    </Key>
+    <Property Name="Id" Nullable="false" Type="Int64" />
+    <Property Name="NasabahId" Nullable="false" Type="Int64" />
+    <Property Name="ProductId" Nullable="false" Type="Int32" />
+    <Property Name="VariantId" Type="Int32" />
+    <Property Name="SalesId" Type="Int32" />
+    <Property Name="CIF" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ACCT" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Amount" Precision="18" Scale="0" Type="Decimal" />
+    <Property Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="LastUpdate" Nullable="false" Type="DateTime" />
+    <Property Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+  </EntityType>
+  <EntityType Name="RD">
+    <Key>
+      <PropertyRef Name="RdId" />
+    </Key>
+    <Property Name="RdId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Npk" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Email" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="RegionCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+  </EntityType>
+  <EntityType Name="SM_Absensi">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+      <PropertyRef Name="Hadir" />
+    </Key>
+    <Property Name="ManagerID" Nullable="false" Type="Int32" />
+    <Property Name="LoginDt" Type="DateTime" />
+    <Property Name="LastLoginDate" Type="DateTime" />
+    <Property Name="LastActiveSession" Type="DateTime" />
+    <Property Name="Hadir" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__Appli__7A672E12">
+    <End Type="dsarModel.aspnet_Applications" Multiplicity="1" Role="aspnet_Applications" />
+    <End Type="dsarModel.aspnet_Membership" Multiplicity="*" Role="aspnet_Membership" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pa__Appli__7C4F7684">
+    <End Type="dsarModel.aspnet_Applications" Multiplicity="1" Role="aspnet_Applications" />
+    <End Type="dsarModel.aspnet_Paths" Multiplicity="*" Role="aspnet_Paths" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Paths">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__01142BA1">
+    <End Type="dsarModel.aspnet_Applications" Multiplicity="1" Role="aspnet_Applications" />
+    <End Type="dsarModel.aspnet_Roles" Multiplicity="*" Role="aspnet_Roles" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__02084FDA">
+    <End Type="dsarModel.aspnet_Applications" Multiplicity="1" Role="aspnet_Applications" />
+    <End Type="dsarModel.aspnet_Users" Multiplicity="*" Role="aspnet_Users" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__7B5B524B">
+    <End Type="dsarModel.aspnet_Users" Multiplicity="1" Role="aspnet_Users" />
+    <End Type="dsarModel.aspnet_Membership" Multiplicity="0..1" Role="aspnet_Membership" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__7D439ABD">
+    <End Type="dsarModel.aspnet_Paths" Multiplicity="1" Role="aspnet_Paths" />
+    <End Type="dsarModel.aspnet_PersonalizationAllUsers" Multiplicity="0..1" Role="aspnet_PersonalizationAllUsers" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationAllUsers">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__7E37BEF6">
+    <End Type="dsarModel.aspnet_Paths" Multiplicity="0..1" Role="aspnet_Paths" />
+    <End Type="dsarModel.aspnet_PersonalizationPerUser" Multiplicity="*" Role="aspnet_PersonalizationPerUser" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__7F2BE32F">
+    <End Type="dsarModel.aspnet_Users" Multiplicity="0..1" Role="aspnet_Users" />
+    <End Type="dsarModel.aspnet_PersonalizationPerUser" Multiplicity="*" Role="aspnet_PersonalizationPerUser" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__00200768">
+    <End Type="dsarModel.aspnet_Users" Multiplicity="1" Role="aspnet_Users" />
+    <End Type="dsarModel.aspnet_Profile" Multiplicity="0..1" Role="aspnet_Profile" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aspnet_UsersInRoles">
+    <End Type="dsarModel.aspnet_Roles" Multiplicity="*" Role="aspnet_Roles" />
+    <End Type="dsarModel.aspnet_Users" Multiplicity="*" Role="aspnet_Users" />
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="UserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PasswordText" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Role" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="RelatedId" Type="Int32" />
+    <Property Name="CreatedDate" Nullable="false" Type="DateTime" />
+    <Property Name="LastLoginDate" Nullable="false" Type="DateTime" />
+    <Property Name="IsLockedOut" Nullable="false" Type="Boolean" />
+    <Property Name="LastActiveSession" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="ProductsLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="CategoryDesc" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ImageName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NIK" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CategoryDescChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CodeChane" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DescriptionChange" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ImageNameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ChangePasswordLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="UsernameAction" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NPK" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserLoginLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LoginDate" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Note" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="StatusLogin" />
+  </EntityType>
+  <EntityType Name="MaterParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ParameterName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParameterValue" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="NIK" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductVariantsLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="VariantId" Nullable="false" />
+    <Property Type="String" Name="ProductDesc" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ProductDescChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NPK" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProductCategoriesLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DescriptionChange" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NPK" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AreasLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AreaDesc" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RegionDesc" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AreaDescChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RegionDescChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NPK" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BranchsLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="BrancCodeDesc" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AreaCodeDesc" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BrancCodeDescChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AreaCodeDescChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NPK" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CallReasonsLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ReasonId" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ReasonIdChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DescriptionChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="Npk" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RegionsLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="RegionCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RegionCodeChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Npk" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+  </EntityType>
+  <EntityType Name="SalesTeamLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TeamIdDesc" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TeamIdDescChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Npk" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VisitReasonLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ReasonId" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ReasonIdChange" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DescriptionChange" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="UserName" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Npk" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ABMLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="ABMId" />
+    <Property Type="String" Name="Npk" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Area" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NpkChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PhoneChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StatusChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AreaChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PasswordChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="NPKUser" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserNameABM" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserNameABMChange" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AdminLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="AdminId" />
+    <Property Type="String" Name="Npk" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Role" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NpkChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PhoneChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StatusChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RoleChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PasswordChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="NPKUser" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserNameAdmin" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserNameAdminChange" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BranchManagerLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="BmId" />
+    <Property Type="String" Name="Npk" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Branch" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NpkChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PhoneChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StatusChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BranchChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PasswordChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="NPKUser" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserNameBM" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserNameBMChange" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RBHLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="RBHId" />
+    <Property Type="String" Name="Npk" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Region" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NpkChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PhoneChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StatusChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RegionChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PasswordChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="NPKUser" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserNameRBH" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserNameRBHChange" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SalesManagerLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="ManagerId" />
+    <Property Type="String" Name="Npk" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Branch" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NpkChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PhoneChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StatusChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BranchChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PasswordChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="NPKUser" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserNameSalesManager" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserNameSalesManagerChange" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SalesLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="SalesId" />
+    <Property Type="String" Name="Npk" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Status" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SalesRole" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Branch" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SalesManager" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NpkChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EmailChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PhoneChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StatusChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SalesRoleChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BranchChange" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SalesManagerChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PasswordChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="NPKUser" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserNameSales" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="UserNameSalesChange" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NewsLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="NewsId" />
+    <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IntroText" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ContentText" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Publish" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="NewsDate" />
+    <Property Type="String" Name="TitleChange" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IntroTextChange" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ContentTextChange" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PublishChange" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="NewsDateChange" />
+    <Property Type="String" Name="UserName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Action" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="NPKUser" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NasabahLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="GCIF" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SourceOfCustomer" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CustomerName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IDNumber" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gender" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="BirthDate" />
+    <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomePhone" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MobilePhone" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Sales" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="GCIFChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SourceOfCustomerChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CustomerNameChange" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IDNumberChange" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="GenderChange" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="DateTime" Name="BirthDateChange" />
+    <Property Type="String" Name="AddressChange" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="HomePhoneChange" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="MobilePhoneChange" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="SalesChange" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Npk" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Action" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="DateTime" Name="ActionDate" />
+    <Property Type="Int32" Name="IdNasabah" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kalcareModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="kalcareModelStoreContainer">
+    <EntitySet Name="Abouts" EntityType="kalcareModel.Store.Abouts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Address" EntityType="kalcareModel.Store.Address" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AddressCategories" EntityType="kalcareModel.Store.AddressCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Admins" EntityType="kalcareModel.Store.Admins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contacts" EntityType="kalcareModel.Store.Contacts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DownloadCategories" EntityType="kalcareModel.Store.DownloadCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Downloads" EntityType="kalcareModel.Store.Downloads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FaqCategories" EntityType="kalcareModel.Store.FaqCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Faqs" EntityType="kalcareModel.Store.Faqs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FaqTopics" EntityType="kalcareModel.Store.FaqTopics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="News" EntityType="kalcareModel.Store.News" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NewsCategories" EntityType="kalcareModel.Store.NewsCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RunningTexts" EntityType="kalcareModel.Store.RunningTexts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Settings" EntityType="kalcareModel.Store.Settings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Solutions" EntityType="kalcareModel.Store.Solutions" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Address_AddressCategories" Association="kalcareModel.Store.FK_Address_AddressCategories">
+      <End Role="AddressCategories" EntitySet="AddressCategories" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Downloads_DownloadCategories" Association="kalcareModel.Store.FK_Downloads_DownloadCategories">
+      <End Role="DownloadCategories" EntitySet="DownloadCategories" />
+      <End Role="Downloads" EntitySet="Downloads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FaqCategories_FaqTopics" Association="kalcareModel.Store.FK_FaqCategories_FaqTopics">
+      <End Role="FaqTopics" EntitySet="FaqTopics" />
+      <End Role="FaqCategories" EntitySet="FaqCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Faqs_FaqCategories" Association="kalcareModel.Store.FK_Faqs_FaqCategories">
+      <End Role="FaqCategories" EntitySet="FaqCategories" />
+      <End Role="Faqs" EntitySet="Faqs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_News_NewsCategories" Association="kalcareModel.Store.FK_News_NewsCategories">
+      <End Role="NewsCategories" EntitySet="NewsCategories" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Abouts">
+    <Key>
+      <PropertyRef Name="AboutId" />
+    </Key>
+    <Property Name="AboutId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="ShowTitle" Type="tinyint" Nullable="false" />
+    <Property Name="Url" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="ContentText" Type="text" Nullable="false" />
+    <Property Name="IsPartner" Type="tinyint" Nullable="false" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="Location" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Address" Type="text" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AddressCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nama" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Alamat" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Kota" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Kodepos" Type="varchar" MaxLength="5" />
+    <Property Name="Negara" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Telepon" Type="varchar" MaxLength="50" />
+    <Property Name="Deskripsi" Type="varchar" MaxLength="255" />
+    <Property Name="NeedToCalled" Type="tinyint" Nullable="false" />
+    <Property Name="Comment" Type="text" Nullable="false" />
+    <Property Name="Replyed" Type="tinyint" Nullable="false" />
+    <Property Name="ReplyMessage" Type="text" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ReplyDate" Type="datetime" />
+    <Property Name="IpAddress" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DownloadCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Url" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="text" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Downloads">
+    <Key>
+      <PropertyRef Name="DownloadId" />
+    </Key>
+    <Property Name="DownloadId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="ImageName" Type="varchar" MaxLength="255" />
+    <Property Name="FileName" Type="varchar" MaxLength="255" />
+    <Property Name="DownloadLink" Type="varchar" MaxLength="255" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FaqCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TopicId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Faqs">
+    <Key>
+      <PropertyRef Name="FaqId" />
+    </Key>
+    <Property Name="FaqId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="Question" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Answer" Type="text" Nullable="false" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FaqTopics">
+    <Key>
+      <PropertyRef Name="TopicId" />
+    </Key>
+    <Property Name="TopicId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Url" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsId" />
+    </Key>
+    <Property Name="NewsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Url" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="PreviewText" Type="text" Nullable="false" />
+    <Property Name="ContentText" Type="text" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="255" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewsCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Url" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RunningTexts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ContentText" Type="text" Nullable="false" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Settings">
+    <Key>
+      <PropertyRef Name="SettingName" />
+    </Key>
+    <Property Name="SettingName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="SettingValue" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Solutions">
+    <Key>
+      <PropertyRef Name="SolutionId" />
+    </Key>
+    <Property Name="SolutionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Url" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="ContentText" Type="text" Nullable="false" />
+    <Property Name="ImageName" Type="varchar" MaxLength="255" />
+    <Property Name="SymbolName" Type="varchar" MaxLength="255" />
+    <Property Name="Publish" Type="tinyint" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Address_AddressCategories">
+    <End Role="AddressCategories" Type="kalcareModel.Store.AddressCategories" Multiplicity="1" />
+    <End Role="Address" Type="kalcareModel.Store.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Downloads_DownloadCategories">
+    <End Role="DownloadCategories" Type="kalcareModel.Store.DownloadCategories" Multiplicity="1" />
+    <End Role="Downloads" Type="kalcareModel.Store.Downloads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DownloadCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Downloads">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FaqCategories_FaqTopics">
+    <End Role="FaqTopics" Type="kalcareModel.Store.FaqTopics" Multiplicity="1" />
+    <End Role="FaqCategories" Type="kalcareModel.Store.FaqCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FaqTopics">
+        <PropertyRef Name="TopicId" />
+      </Principal>
+      <Dependent Role="FaqCategories">
+        <PropertyRef Name="TopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Faqs_FaqCategories">
+    <End Role="FaqCategories" Type="kalcareModel.Store.FaqCategories" Multiplicity="1" />
+    <End Role="Faqs" Type="kalcareModel.Store.Faqs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FaqCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Faqs">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_News_NewsCategories">
+    <End Role="NewsCategories" Type="kalcareModel.Store.NewsCategories" Multiplicity="1" />
+    <End Role="News" Type="kalcareModel.Store.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NewsCategories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
